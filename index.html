@@ -1,0 +1,489 @@
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+    rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#50ADC9",
+                    "primary-light": "#E0F4F8",
+                    "accent-cyan": "#269DA0",
+                    "accent-red": "#C00000",
+                    "background-light": "#ffffff",
+                    "background-soft": "#f0f9fb",
+                    "surface-white": "rgba(255, 255, 255, 0.8)",
+                    "text-main": "#1e293b",
+                    "text-muted": "#64748b",
+                },
+                fontFamily: {
+                    "display": ["Quicksand", "Inter", "sans-serif"],
+                    "sans": ["Inter", "sans-serif"],
+                },
+                borderRadius: {
+                    "DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "2xl": "3rem", "full": "9999px"
+                },
+                boxShadow: {
+                    'glass': '0 8px 32px 0 rgba(80, 173, 201, 0.07)',
+                    'glow': '0 0 20px rgba(80, 173, 201, 0.15)',
+                }
+            },
+        },
+    }
+</script>
+<style>
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-gradient {
+        background: linear-gradient(135deg, #50ADC9, #269DA0);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    .custom-input {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .custom-input:focus {
+        background: #ffffff;
+        border-color: #50ADC9;
+        box-shadow: 0 0 0 3px rgba(80, 173, 201, 0.1);
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+
+<div class="bg-background-soft text-text-main font-sans antialiased selection:bg-primary-light selection:text-primary overflow-x-hidden"
+    style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div
+            class="glass-panel mx-4 mt-4 rounded-full px-6 py-3 max-w-7xl mx-auto flex items-center justify-between shadow-glass">
+            <div class="flex items-center gap-3 text-primary">
+                <div
+                    class="size-9 bg-gradient-to-br from-primary to-accent-cyan rounded-full flex items-center justify-center text-white shadow-glow">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">local_laundry_service</span>
+                </div>
+                <h2 class="text-slate-800 text-lg font-bold tracking-tight font-display">Waschsalon@Südbad</h2>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-slate-500 hover:text-primary text-sm font-medium transition-colors"
+                    href="#">Willkommen</a>
+                <a class="text-slate-500 hover:text-primary text-sm font-medium transition-colors" href="#">Über Uns</a>
+                <a class="text-slate-500 hover:text-primary text-sm font-medium transition-colors"
+                    href="#">Leistungen</a>
+                <a class="text-slate-500 hover:text-primary text-sm font-medium transition-colors" href="#">Kontakt</a>
+            </div>
+            <div class="flex gap-3">
+                <a href="tel:+4915147581155"
+                    class="flex h-9 cursor-pointer items-center justify-center rounded-full px-5 bg-gradient-to-r from-primary to-accent-cyan hover:shadow-lg hover:shadow-primary/20 text-white text-sm font-bold transition-all transform hover:scale-105 gap-2">
+                    <span class="material-symbols-outlined text-[18px]">call</span> Jetzt anrufen
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div
+        class="relative min-h-screen w-full flex flex-col items-center justify-center px-4 pt-20 pb-12 overflow-hidden bg-white">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-white/40 z-10 backdrop-blur-[2px]"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-white z-10"></div>
+            <img alt="Waschsalon Südbad Dortmund" class="w-full h-full object-cover object-center brightness-110"
+                src="https://waschsalonsuedbad-dortmund.de/wp-content/uploads/1-1024x748.jpg" />
+        </div>
+        <div class="relative z-10 w-full max-w-[960px] flex flex-col items-center gap-8 animate-fade-in">
+            <div class="flex flex-col gap-4 text-center items-center">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/60 border border-white/80 shadow-sm backdrop-blur-md">
+                    <span class="size-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-xs font-semibold text-primary tracking-wide uppercase">2 Standorte in Dortmund –
+                        Südbad & Barop</span>
+                </div>
+                <h1
+                    class="text-slate-900 text-5xl md:text-7xl font-black leading-[0.95] tracking-tight text-center max-w-4xl drop-shadow-sm font-display">
+                    XXL Sauber. <br /><span class="text-gradient">In Rekordzeit.</span>
+                </h1>
+                <p class="text-slate-600 text-lg md:text-xl font-medium leading-relaxed max-w-2xl text-center mx-auto">
+                    13 Kilo Wäsche in nur 30–40 Minuten! Professionelle Selbstbedienungs-Waschsalons mit modernen
+                    Maschinen und Trocknern. Einfach vorbeikommen – keine Anmeldung nötig.
+                </p>
+            </div>
+
+            <div class="glass-panel p-3 rounded-3xl w-full max-w-2xl mt-6 shadow-xl shadow-primary/5">
+                <form class="flex flex-col md:flex-row gap-3" onsubmit="event.preventDefault();">
+                    <div class="relative flex-1 group">
+                        <div
+                            class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">
+                            <span class="material-symbols-outlined">dry_cleaning</span>
+                        </div>
+                        <select
+                            class="w-full h-14 pl-12 pr-10 custom-input rounded-2xl text-slate-700 transition-all outline-none focus:ring-2 focus:ring-primary/50 appearance-none cursor-pointer bg-transparent">
+                            <option value="" disabled selected>Was waschen wir heute?</option>
+                            <option>Alltagswäsche</option>
+                            <option>Bettwäsche & Handtücher</option>
+                            <option>Spezialwäsche (z.B. Decken)</option>
+                            <option>Gewerbliche Wäsche</option>
+                        </select>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+                            <span class="material-symbols-outlined">expand_more</span>
+                        </div>
+                    </div>
+                    <div class="relative flex-1 group">
+                        <div
+                            class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </div>
+                        <select
+                            class="w-full h-14 pl-12 pr-10 custom-input rounded-2xl text-slate-700 transition-all outline-none focus:ring-2 focus:ring-primary/50 appearance-none cursor-pointer bg-transparent">
+                            <option value="" disabled selected>Welcher Standort?</option>
+                            <option>Waschsalon@Südbad – Ruhrallee 52</option>
+                            <option>Waschsalon@Barop – Stockumer Str. 215</option>
+                        </select>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+                            <span class="material-symbols-outlined">expand_more</span>
+                        </div>
+                    </div>
+                    <button
+                        class="flex justify-center items-center gap-2 h-14 px-8 bg-gradient-to-r from-primary to-accent-cyan hover:shadow-lg hover:shadow-primary/30 text-white font-bold rounded-2xl transition-all whitespace-nowrap">
+                        Anfrage stellen <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                    </button>
+                </form>
+            </div>
+
+            <div
+                class="flex flex-wrap justify-center items-center gap-4 md:gap-8 mt-4 text-sm font-medium text-slate-500">
+                <div class="flex items-center gap-2 bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
+                    <span class="material-symbols-outlined text-green-500 text-xl">verified</span>
+                    <span class="text-slate-700 font-bold">Selbstbedienung</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
+                    <span class="material-symbols-outlined text-primary text-xl">schedule</span>
+                    <span class="text-slate-700 font-bold">Mo. – Sa. geöffnet</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
+                    <span class="material-symbols-outlined text-blue-500 text-xl">payments</span>
+                    <span class="text-slate-700 font-bold">Münzautomaten</span>
+                </div>
+            </div>
+        </div>
+        <div
+            class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-40">
+            <span class="text-xs uppercase tracking-widest text-primary font-bold">Scrollen</span>
+            <span class="material-symbols-outlined text-primary">keyboard_arrow_down</span>
+        </div>
+    </div>
+
+    <!-- PROCESS SECTION -->
+    <section class="py-24 px-4 bg-background-soft relative overflow-hidden">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-100/50 rounded-full blur-[100px] pointer-events-none">
+        </div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-4 font-display">Einfach & Unkompliziert</h2>
+                <p class="text-slate-500 text-lg">So funktioniert's bei Waschsalon@Südbad.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative">
+                <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-[2px] bg-slate-200 z-0">
+                    <div class="h-full w-1/2 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0"></div>
+                </div>
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div
+                        class="w-24 h-24 rounded-3xl bg-white border border-slate-100 flex items-center justify-center mb-6 shadow-xl shadow-cyan-900/5 group-hover:-translate-y-2 transition-all duration-300">
+                        <span
+                            class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">door_open</span>
+                    </div>
+                    <div
+                        class="bg-cyan-50 text-primary text-xs font-bold px-3 py-1 rounded-full mb-3 border border-cyan-100">
+                        SCHRITT 01</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Vorbeikommen</h3>
+                    <p class="text-slate-500 leading-relaxed max-w-xs">Kommen Sie einfach während unserer Öffnungszeiten
+                        vorbei – keine Anmeldung, kein Termin nötig.</p>
+                </div>
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div
+                        class="w-24 h-24 rounded-3xl bg-white border border-slate-100 flex items-center justify-center mb-6 shadow-xl shadow-cyan-900/5 group-hover:-translate-y-2 transition-all duration-300">
+                        <span
+                            class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">local_laundry_service</span>
+                    </div>
+                    <div
+                        class="bg-cyan-50 text-primary text-xs font-bold px-3 py-1 rounded-full mb-3 border border-cyan-100">
+                        SCHRITT 02</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Waschen & Trocknen</h3>
+                    <p class="text-slate-500 leading-relaxed max-w-xs">Wählen Sie Ihren Waschgang, werfen Sie eine Münze
+                        ein und entspannen Sie sich, während Ihre Wäsche gereinigt wird.</p>
+                </div>
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div
+                        class="w-24 h-24 rounded-3xl bg-white border border-slate-100 flex items-center justify-center mb-6 shadow-xl shadow-cyan-900/5 group-hover:-translate-y-2 transition-all duration-300">
+                        <span
+                            class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">checkroom</span>
+                    </div>
+                    <div
+                        class="bg-cyan-50 text-primary text-xs font-bold px-3 py-1 rounded-full mb-3 border border-cyan-100">
+                        SCHRITT 03</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Mitnehmen</h3>
+                    <p class="text-slate-500 leading-relaxed max-w-xs">Ihre frisch gewaschene und getrocknete Wäsche
+                        nehmen Sie bequem mit nach Hause. Fertig!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATIONS SECTION -->
+    <section class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div
+                class="group relative h-[500px] w-full rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl shadow-slate-200 hover:shadow-primary/20 transition-all duration-500">
+                <img alt="Waschsalon Südbad Innenansicht"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-105"
+                    loading="lazy" src="https://waschsalonsuedbad-dortmund.de/wp-content/uploads/1-1024x748.jpg" />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 p-10 flex flex-col items-start gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <span
+                        class="bg-white/90 backdrop-blur-md text-primary text-xs font-extrabold px-3 py-1 rounded-full shadow-lg">STANDORT
+                        1</span>
+                    <h3 class="text-4xl font-bold text-white font-display">Waschsalon@Südbad</h3>
+                    <p
+                        class="text-white/90 max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 font-medium">
+                        Ruhrallee 52, 44139 Dortmund. Unsere zentrale Filiale im Dortmunder Süden direkt am Südbad.
+                    </p>
+                </div>
+            </div>
+            <div
+                class="group relative h-[500px] w-full rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl shadow-slate-200 hover:shadow-primary/20 transition-all duration-500">
+                <img alt="Waschsalon Barop Innenansicht"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-105"
+                    loading="lazy" src="https://waschsalonsuedbad-dortmund.de/wp-content/uploads/2-1024x748.jpg" />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 p-10 flex flex-col items-start gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <span
+                        class="bg-primary text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-lg border border-primary-light/20">STANDORT
+                        2</span>
+                    <h3 class="text-4xl font-bold text-white font-display">Waschsalon@Barop</h3>
+                    <p
+                        class="text-white/90 max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 font-medium">
+                        Stockumer Str. 215, 44225 Dortmund. Unsere zweite Filiale im Westen – direkt in Barop
+                        erreichbar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="py-24 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-16 items-center">
+            <div class="flex-1 flex flex-col gap-6 items-start">
+                <div class="flex items-center gap-2 text-primary font-bold tracking-widest text-xs uppercase">
+                    <span class="w-8 h-[3px] bg-primary rounded-full"></span>
+                    Kundenstimmen
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight font-display">Zufriedenheit
+                    <br /><span class="text-primary">Garantiert.</span></h2>
+                <p class="text-slate-500 text-lg leading-relaxed">Ihre Zufriedenheit mit unseren Waschsalons steht für
+                    uns an oberster Stelle. Deshalb finden Sie bei uns stets saubere und gewartete Waschmaschinen und
+                    Trockner vor.</p>
+                <div class="flex flex-wrap gap-4 mt-6">
+                    <div
+                        class="flex items-center gap-3 bg-slate-50 px-5 py-4 rounded-2xl border border-slate-100 shadow-sm">
+                        <img alt="Google Logo" class="w-6 h-6"
+                            src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" />
+                        <div class="flex flex-col">
+                            <span class="text-slate-900 font-bold leading-none">4.2/5</span>
+                            <span class="text-slate-500 text-xs mt-1">Basierend auf 76 Bewertungen</span>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center gap-3 bg-slate-50 px-5 py-4 rounded-2xl border border-slate-100 shadow-sm">
+                        <span class="material-symbols-outlined text-primary text-2xl">storefront</span>
+                        <div class="flex flex-col">
+                            <span class="text-slate-900 font-bold leading-none">2 Standorte</span>
+                            <span class="text-slate-500 text-xs mt-1">Südbad & Barop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 w-full lg:-mr-[50vw]">
+                <div class="flex gap-4 overflow-x-auto pb-8 pt-4 px-2 snap-x hide-scrollbar lg:pr-[50vw]">
+                    <div
+                        class="min-w-[320px] bg-white border border-slate-100 p-8 rounded-3xl snap-start flex flex-col gap-4 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]">
+                        <div class="flex gap-1 text-yellow-400">
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed italic">"Super Waschsalon! Immer sauber,
+                            moderne Maschinen und die Wäsche ist in 30 Minuten fertig. Kann ich nur empfehlen."</p>
+                        <div class="flex items-center gap-3 mt-auto pt-4 border-t border-slate-50">
+                            <div>
+                                <p class="text-slate-900 text-sm font-bold">Manuel R.</p>
+                                <p class="text-slate-400 text-xs">Stammkunde Südbad</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="min-w-[320px] bg-white border border-slate-100 p-8 rounded-3xl snap-start flex flex-col gap-4 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]">
+                        <div class="flex gap-1 text-yellow-400">
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed italic">"Die Maschinen bei Barop sind top in
+                            Schuss. Sehr fair im Preis und man kann in Ruhe seine Wäsche machen."</p>
+                        <div class="flex items-center gap-3 mt-auto pt-4 border-t border-slate-50">
+                            <div>
+                                <p class="text-slate-900 text-sm font-bold">Lisa K.</p>
+                                <p class="text-slate-400 text-xs">Stammkundin Barop</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="min-w-[320px] bg-white border border-slate-100 p-8 rounded-3xl snap-start flex flex-col gap-4 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]">
+                        <div class="flex gap-1 text-yellow-400">
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star</span>
+                            <span class="material-symbols-outlined" style="font-size:20px">star_half</span>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed italic">"Nutze den Waschsalon regelmäßig für
+                            meine Gewerbe-Wäsche. Unkompliziert und verlässlich. Gutes Preis-Leistung."</p>
+                        <div class="flex items-center gap-3 mt-auto pt-4 border-t border-slate-50">
+                            <div>
+                                <p class="text-slate-900 text-sm font-bold">Torsten B.</p>
+                                <p class="text-slate-400 text-xs">Gewerblicher Nutzer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-50 pt-20 pb-10 border-t border-slate-200 text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 text-slate-800 mb-6">
+                        <div class="size-6 bg-primary rounded-full flex items-center justify-center text-white">
+                            <span class="material-symbols-outlined"
+                                style="font-size: 14px;">local_laundry_service</span>
+                        </div>
+                        <h2 class="text-slate-900 text-lg font-bold font-display">Waschsalon@Südbad</h2>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-6">
+                        Ihre professionelle Selbstbedienungs-Wäscherei in Dortmund. Zwei Standorte, moderne Maschinen
+                        und faire Preise – für Privat und Gewerbe.
+                    </p>
+                    <div class="flex flex-col gap-1 text-sm">
+                        <p class="font-bold text-slate-800">☎ 0151 47581155</p>
+                        <p>✉ info@waschsalonsuedbad-dortmund.de</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-slate-900 font-bold mb-4">Standorte</h3>
+                    <ul class="flex flex-col gap-3 text-sm">
+                        <li><strong>Südbad:</strong> Ruhrallee 52, 44139 Dortmund</li>
+                        <li><strong>Barop:</strong> Stockumer Str. 215, 44225 Dortmund</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-slate-900 font-bold mb-4">Rechtliches</h3>
+                    <ul class="flex flex-col gap-3 text-sm">
+                        <li><a class="hover:text-primary transition-colors" href="#">Impressum</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Datenschutz</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-slate-900 font-bold mb-4">Kontakt</h3>
+                    <ul class="flex flex-col gap-3 text-sm">
+                        <li><a class="hover:text-primary transition-colors" href="tel:+4915147581155">☎ 0151
+                                47581155</a></li>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="mailto:info@waschsalonsuedbad-dortmund.de">✉ E-Mail senden</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <div class="flex flex-col md:flex-row items-center gap-1">
+                    <p>© 2024 Waschsalon@Südbad.</p>
+                    <p class="text-slate-400">Dortmund – Südbad & Barop. Alle Rechte vorbehalten.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span>Geöffnet Mo. – Sa.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="tel:+4915147581155"
+        class="group fixed bottom-6 right-6 h-14 pl-4 pr-4 bg-gradient-to-r from-primary to-accent-cyan text-white rounded-full shadow-lg shadow-primary/30 flex items-center justify-center gap-3 hover:scale-105 hover:pr-5 transition-all z-50 focus:outline-none focus:ring-4 focus:ring-primary/50">
+        <span class="material-symbols-outlined text-[28px]">call</span>
+        <span class="font-bold tracking-wide whitespace-nowrap overflow-hidden pr-2">Jetzt anrufen</span>
+    </a>
+
+</div>
